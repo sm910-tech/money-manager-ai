@@ -272,7 +272,7 @@ def _parse_decimal(raw_value: object) -> Decimal | None:
     elif upper.endswith("CR"):
         text = text[:-2].strip()
 
-    cleaned = re.sub(r"[₹$,\s]|(?i)\b(?:INR|RS\.?)\b", "", text)
+    cleaned = re.sub(r"(?i)[₹$,\s]|\b(?:INR|RS\.?)\b", "", text)
     if not cleaned:
         return None
     try:
